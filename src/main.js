@@ -1,35 +1,29 @@
 // 入口文件
 import Vue from 'vue'
-
-// //配置vuex步骤
-// //1.运行yarn add vuex -S
-// //2.导入包
-// import vuex from "vuex"
-// //3.注册vuex到vue中
-// Vue.use(vuex)
-//4.new Vuex.Store()实例，得到一个数据仓库
-// var store = new Vue.Store({
-//     state: {
-//         count: 0
-//     },
-//     mutation: {}
-// })
-
 //导入路由的包
 import VueRouter from 'vue-router'
 //安装路由
 Vue.use(VueRouter)
+    //导入格式化时间插件
+import moment from "moment"
+//定义全局过滤器
+Vue.filter('dateFormat', function(dataStr, pattern = "YYYY-MM-DD HH:mm:ss") {
+    return moment(dataStr).format(pattern)
+})
 
 //导入 vue-resource
 import VueResource from 'vue-resource'
 // 安装Vueresource
 Vue.use(VueResource)
-
-//按需导入Mint-UI的组件
-import { Header, Swipe, SwipeItem } from 'mint-ui'
+    //设置请求的根路径
+Vue.http.options.root = "http://www.lovegf.cn:8899"
+    //按需导入Mint-UI的组件
+import { Header, Swipe, SwipeItem, Button }
+from 'mint-ui'
 Vue.component(Header.name, Header)
-Vue.component(Swipe.name, Swipe);
-Vue.component(SwipeItem.name, SwipeItem);
+Vue.component(Swipe.name, Swipe)
+Vue.component(SwipeItem.name, SwipeItem)
+Vue.component(Button.name, Button)
 
 // 导入mui.css
 import "./lib/mui/css/mui.min.css"
