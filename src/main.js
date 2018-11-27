@@ -17,13 +17,15 @@ import VueResource from 'vue-resource'
 Vue.use(VueResource)
     //设置请求的根路径
 Vue.http.options.root = "http://www.lovegf.cn:8899"
+    //全职设置post表单数据格式组织的形式
+Vue.http.options.emulateJSON = true
     //按需导入Mint-UI的组件
-import { Header, Swipe, SwipeItem, Button }
-from 'mint-ui'
+import { Header, Swipe, SwipeItem, Button, Lazyload } from 'mint-ui'
 Vue.component(Header.name, Header)
 Vue.component(Swipe.name, Swipe)
 Vue.component(SwipeItem.name, SwipeItem)
 Vue.component(Button.name, Button)
+Vue.use(Lazyload)
 
 // 导入mui.css
 import "./lib/mui/css/mui.min.css"
